@@ -13,7 +13,7 @@
             --text-muted: #868e96;
             --border-color: #e9ecef;
             --accent-color: #343a40;
-            --overlay-bg: rgba(15, 17, 19, 0.75); /* 더 고급스러운 딤드 처리 */
+            --overlay-bg: rgba(15, 17, 19, 0.75);
         }
 
         * {
@@ -180,7 +180,7 @@
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
-            backdrop-filter: blur(4px); /* 뒷배경 흐림 효과로 고급화 */
+            backdrop-filter: blur(4px);
         }
 
         .photo-modal.active {
@@ -188,22 +188,17 @@
             visibility: visible;
         }
 
-        /* 가로로 넓게 쓰는 모달창 몸통 */
         .photo-modal-content {
             background-color: #fff;
             border-radius: 24px;
             position: relative;
             width: 92%;
-            max-width: 1100px; /* 가로 크기를 넓게 확보 */
-            height: 80vh; /* 태블릿 높이에 맞춰 시원하게 설정 */
+            max-width: 1100px;
+            height: 80vh;
             box-shadow: 0 25px 60px rgba(0,0,0,0.4);
             overflow: hidden;
-            
-            /* 좌우 2분할 레이아웃 */
             display: flex;
             flex-direction: row;
-
-            /* 애니메이션: 중앙에서 자연스럽게 커짐 */
             transform: scale(0.92);
             transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.15);
         }
@@ -212,7 +207,6 @@
             transform: scale(1);
         }
 
-        /* 닫기 버튼 */
         .photo-modal-close {
             position: absolute;
             top: 20px;
@@ -231,9 +225,8 @@
             color: #495057;
         }
 
-        /* [좌측] 가로로 넓은 이미지 영역 */
         .modal-left-area {
-            flex: 1.4; /* 이미지 영역을 더 넓게 설정 */
+            flex: 1.4;
             background-color: #f8f9fa;
             display: flex;
             align-items: center;
@@ -243,7 +236,6 @@
             height: 100%;
         }
 
-        /* [우측] 텍스트 및 상세 안내 영역 */
         .modal-right-area {
             flex: 0.6;
             padding: 40px 30px;
@@ -255,7 +247,6 @@
             height: 100%;
         }
 
-        /* 플레이스홀더 디자인 (가로 확대형) */
         .modal-image-placeholder {
             width: 100%;
             height: 100%;
@@ -268,11 +259,10 @@
             background-color: #ffffff;
         }
 
-        /* 실제 이미지 들어왔을 때 가로/세로 최적 꽉참 효과 */
         .modal-product-image {
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; /* 이미지 비율 유지하며 꽉 채움 */
+            object-fit: contain;
             border-radius: 16px;
             display: none; 
         }
@@ -318,11 +308,11 @@
             <div class="button-grid">
                 <button class="btn" onclick="navigateTo('step-able')">에이블</button>
                 <button class="btn" onclick="navigateTo('step-samchuly')">삼천리</button>
-                <button class="btn" onclick="navigateTo('step-pushcar')">푸쉬카</button>
+                <button class="btn" onclick="navigateTo('step-pushcar-root')">푸쉬카</button>
             </div>
         </div>
 
-        <!-- ================= 에이블 라인 ================= -->
+        <!-- ================= [에이블 라인] ================= -->
         <div id="step-able" class="step-panel">
             <button class="btn-back" onclick="navigateTo('step-main')">메인으로</button>
             <h2 class="step-title">에이블 시리즈</h2>
@@ -334,62 +324,59 @@
             </div>
         </div>
 
-        <!-- 에이블 플러스 색상 -->
         <div id="step-able-plus" class="step-panel">
             <button class="btn-back" onclick="navigateTo('step-able')">이전으로</button>
-            <h2 class="step-title">에이블 플러스 - 색상 선택</h2>
+            <h2 class="step-title">에이블 플러스 - 색상</h2>
             <div class="color-grid">
-                <button class="btn-color" onclick="openPhotoModal('에이블 플러스 [브라운]', 'brown.jpg')">브라운</button>
-                <button class="btn-color" onclick="openPhotoModal('에이블 플러스 [블랙]', 'black.jpg')">블랙</button>
-                <button class="btn-color" onclick="openPhotoModal('에이블 플러스 [베이지]', 'beige.jpg')">베이지</button>
-                <button class="btn-color" onclick="openPhotoModal('에이블 플러스 [그린]', 'green.jpg')">그린</button>
+                <button class="btn-color" onclick="openPhotoModal('에이블 플러스 [브라운]', 'able_plus_brown.jpg')">브라운</button>
+                <button class="btn-color" onclick="openPhotoModal('에이블 플러스 [블랙]', 'able_plus_black.jpg')">블랙</button>
+                <button class="btn-color" onclick="openPhotoModal('에이블 플러스 [베이지]', 'able_plus_beige.jpg')">베이지</button>
+                <button class="btn-color" onclick="openPhotoModal('에이블 플러스 [그린]', 'able_plus_green.jpg')">그린</button>
             </div>
         </div>
 
-        <!-- 코지샤인 색상 -->
         <div id="step-cozy-shine" class="step-panel">
             <button class="btn-back" onclick="navigateTo('step-able')">이전으로</button>
-            <h2 class="step-title">코지샤인 - 색상 선택</h2>
+            <h2 class="step-title">코지샤인 - 색상</h2>
             <div class="color-grid">
-                <button class="btn-color" onclick="openPhotoModal('코지샤인 [카푸치노 블랙]', 'capu_black.jpg')">카푸치노 블랙</button>
-                <button class="btn-color" onclick="openPhotoModal('코지샤인 [카푸치노 화이트]', 'capu_white.jpg')">카푸치노 화이트</button>
-                <button class="btn-color" onclick="openPhotoModal('코지샤인 [제트 블랙]', 'jet_black.jpg')">제트 블랙</button>
+                <button class="btn-color" onclick="openPhotoModal('코지샤인 [카푸치노 블랙]', 'cozy_shine_capu_black.jpg')">카푸치노 블랙</button>
+                <button class="btn-color" onclick="openPhotoModal('코지샤인 [카푸치노 화이트]', 'cozy_shine_capu_white.jpg')">카푸치노 화이트</button>
+                <button class="btn-color" onclick="openPhotoModal('코지샤인 [제트 블랙]', 'cozy_shine_jet_black.jpg')">제트 블랙</button>
             </div>
         </div>
 
-        <!-- 코지쉘 색상 -->
         <div id="step-cozy-shell" class="step-panel">
             <button class="btn-back" onclick="navigateTo('step-able')">이전으로</button>
-            <h2 class="step-title">코지쉘 - 색상 선택</h2>
+            <h2 class="step-title">코지쉘 - 색상</h2>
             <div class="color-grid">
-                <button class="btn-color" onclick="openPhotoModal('코지쉘 [애쉬 베이지]', 'ash_beige.jpg')">애쉬 베이지</button>
-                <button class="btn-color" onclick="openPhotoModal('코지쉘 [애쉬 블랙]', 'ash_black.jpg')">애쉬 블랙</button>
+                <button class="btn-color" onclick="openPhotoModal('코지쉘 [애쉬 베이지]', 'cozy_shell_ash_beige.jpg')">애쉬 베이지</button>
+                <button class="btn-color" onclick="openPhotoModal('코지쉘 [애쉬 블랙]', 'cozy_shell_ash_black.jpg')">애쉬 블랙</button>
             </div>
         </div>
 
-        <!-- 스핀플러스 색상 -->
         <div id="step-spin-plus" class="step-panel">
             <button class="btn-back" onclick="navigateTo('step-able')">이전으로</button>
-            <h2 class="step-title">스핀플러스 - 색상 선택</h2>
+            <h2 class="step-title">스핀플러스 - 색상</h2>
             <div class="color-grid">
-                <button class="btn-color" onclick="openPhotoModal('스핀플러스 [블랙]', 'spin_black.jpg')">블랙</button>
-                <button class="btn-color" onclick="openPhotoModal('스핀플러스 [베이지]', 'spin_beige.jpg')">베이지</button>
-                <button class="btn-color" onclick="openPhotoModal('스핀플러스 [그린]', 'spin_green.jpg')">그린</button>
+                <button class="btn-color" onclick="openPhotoModal('스핀플러스 [블랙]', 'spin_plus_black.jpg')">블랙</button>
+                <button class="btn-color" onclick="openPhotoModal('스핀플러스 [베이지]', 'spin_plus_beige.jpg')">베이지</button>
+                <button class="btn-color" onclick="openPhotoModal('스핀플러스 [그린]', 'spin_plus_green.jpg')">그린</button>
             </div>
         </div>
 
-        <!-- ================= 삼천리 라인 ================= -->
+
+        <!-- ================= [삼천리 라인] ================= -->
         <div id="step-samchuly" class="step-panel">
             <button class="btn-back" onclick="navigateTo('step-main')">메인으로</button>
             <h2 class="step-title">삼천리 자전거 제품군</h2>
             <div class="button-grid">
                 <button class="btn" onclick="navigateTo('step-trike')">트라이크</button>
-                <button class="btn" onclick="alert('딩고 상세 준비 중입니다.')">딩고</button>
-                <button class="btn" onclick="alert('트레이스 상세 준비 중입니다.')">트레이스</button>
+                <button class="btn" onclick="navigateTo('step-dingo')">딩고</button>
+                <button class="btn" onclick="navigateTo('step-trace')">트레이스</button>
             </div>
         </div>
 
-        <!-- 트라이크 소분류 -->
+        <!-- 1. 트라이크 라인 -->
         <div id="step-trike" class="step-panel">
             <button class="btn-back" onclick="navigateTo('step-samchuly')">이전으로</button>
             <h2 class="step-title">트라이크 라인업</h2>
@@ -400,17 +387,15 @@
             </div>
         </div>
 
-        <!-- 샘트200 연식 선택 -->
         <div id="step-samte" class="step-panel">
             <button class="btn-back" onclick="navigateTo('step-trike')">이전으로</button>
-            <h2 class="step-title">샘트200 - 연식 선택</h2>
+            <h2 class="step-title">샘트200 - 연식</h2>
             <div class="button-grid">
                 <button class="btn" onclick="navigateTo('step-samte-25')">25년식</button>
                 <button class="btn" onclick="navigateTo('step-samte-26')">26년식</button>
             </div>
         </div>
 
-        <!-- 샘트200 - 25년식 색상 -->
         <div id="step-samte-25" class="step-panel">
             <button class="btn-back" onclick="navigateTo('step-samte')">이전으로</button>
             <h2 class="step-title">샘트200 (25년) - 색상</h2>
@@ -421,7 +406,6 @@
             </div>
         </div>
 
-        <!-- 샘트200 - 26년식 색상 -->
         <div id="step-samte-26" class="step-panel">
             <button class="btn-back" onclick="navigateTo('step-samte')">이전으로</button>
             <h2 class="step-title">샘트200 (26년) - 색상</h2>
@@ -432,10 +416,9 @@
             </div>
         </div>
 
-        <!-- 콤팩트 연식 선택 -->
         <div id="step-compact" class="step-panel">
             <button class="btn-back" onclick="navigateTo('step-trike')">이전으로</button>
-            <h2 class="step-title">콤팩트 - 연식 선택</h2>
+            <h2 class="step-title">콤팩트 - 연식</h2>
             <div class="button-grid">
                 <button class="btn" onclick="navigateTo('step-compact-24')">24년식</button>
                 <button class="btn" onclick="navigateTo('step-compact-25')">25년식</button>
@@ -443,7 +426,6 @@
             </div>
         </div>
 
-        <!-- 콤팩트 - 24년식 색상 -->
         <div id="step-compact-24" class="step-panel">
             <button class="btn-back" onclick="navigateTo('step-compact')">이전으로</button>
             <h2 class="step-title">콤팩트 (24년) - 색상</h2>
@@ -454,7 +436,6 @@
             </div>
         </div>
 
-        <!-- 콤팩트 - 25년식 색상 -->
         <div id="step-compact-25" class="step-panel">
             <button class="btn-back" onclick="navigateTo('step-compact')">이전으로</button>
             <h2 class="step-title">콤팩트 (25년) - 색상</h2>
@@ -466,7 +447,6 @@
             </div>
         </div>
 
-        <!-- 콤팩트 - 26년식 색상 -->
         <div id="step-compact-26" class="step-panel">
             <button class="btn-back" onclick="navigateTo('step-compact')">이전으로</button>
             <h2 class="step-title">콤팩트 (26년) - 색상</h2>
@@ -477,10 +457,9 @@
             </div>
         </div>
 
-        <!-- 캐디 플러스 연식 선택 -->
         <div id="step-caddy" class="step-panel">
             <button class="btn-back" onclick="navigateTo('step-trike')">이전으로</button>
-            <h2 class="step-title">캐디 플러스 - 연식 선택</h2>
+            <h2 class="step-title">캐디 플러스 - 연식</h2>
             <div class="button-grid">
                 <button class="btn" onclick="navigateTo('step-caddy-26')">26년식</button>
             </div>
@@ -495,11 +474,174 @@
             </div>
         </div>
 
-        <!-- ================= 푸쉬카 라인 ================= -->
-        <div id="step-pushcar" class="step-panel">
+        <!-- 2. 딩고 (인치별 분류) -->
+        <div id="step-dingo" class="step-panel">
+            <button class="btn-back" onclick="navigateTo('step-samchuly')">이전으로</button>
+            <h2 class="step-title">딩고 - 사이즈 선택</h2>
+            <div class="button-grid">
+                <button class="btn" onclick="navigateTo('step-dingo-14')">14인치</button>
+                <button class="btn" onclick="navigateTo('step-dingo-16')">16인치</button>
+                <button class="btn" onclick="navigateTo('step-dingo-18')">18인치</button>
+                <button class="btn" onclick="navigateTo('step-dingo-20')">20인치</button>
+            </div>
+        </div>
+
+        <div id="step-dingo-14" class="step-panel">
+            <button class="btn-back" onclick="navigateTo('step-dingo')">이전으로</button>
+            <h2 class="step-title">딩고 14인치 - 색상</h2>
+            <div class="color-grid">
+                <button class="btn-color" onclick="openPhotoModal('딩고 14인치 [라이트 핑크]', 'dingo14_light_pink.jpg')">라이트 핑크</button>
+                <button class="btn-color" onclick="openPhotoModal('딩고 14인치 [라이브 블루]', 'dingo14_live_blue.jpg')">라이브 블루</button>
+            </div>
+        </div>
+
+        <div id="step-dingo-16" class="step-panel">
+            <button class="btn-back" onclick="navigateTo('step-dingo')">이전으로</button>
+            <h2 class="step-title">딩고 16인치 - 색상</h2>
+            <div class="color-grid">
+                <button class="btn-color" onclick="openPhotoModal('딩고 16인치 [아이보리]', 'dingo16_ivory.jpg')">아이보리</button>
+                <button class="btn-color" onclick="openPhotoModal('딩고 16인치 [라이트 블루]', 'dingo16_light_blue.jpg')">라이트 블루</button>
+                <button class="btn-color" onclick="openPhotoModal('딩고 16인치 [라이트 핑크]', 'dingo16_light_pink.jpg')">라이트 핑크</button>
+            </div>
+        </div>
+
+        <div id="step-dingo-18" class="step-panel">
+            <button class="btn-back" onclick="navigateTo('step-dingo')">이전으로</button>
+            <h2 class="step-title">딩고 18인치 - 색상</h2>
+            <div class="color-grid">
+                <button class="btn-color" onclick="openPhotoModal('딩고 18인치 [라임]', 'dingo18_lime.jpg')">라임</button>
+                <button class="btn-color" onclick="openPhotoModal('딩고 18인치 [라이트 핑크]', 'dingo18_light_pink.jpg')">라이트 핑크</button>
+                <button class="btn-color" onclick="openPhotoModal('딩고 18인치 [세이브 블루 (무광)]', 'dingo18_save_blue.jpg')">세이브 블루(무광)</button>
+            </div>
+        </div>
+
+        <div id="step-dingo-20" class="step-panel">
+            <button class="btn-back" onclick="navigateTo('step-dingo')">이전으로</button>
+            <h2 class="step-title">딩고 20인치 - 색상</h2>
+            <div class="color-grid">
+                <button class="btn-color" onclick="openPhotoModal('딩고 20인치 [라일락]', 'dingo20_lilac.jpg')">라일락</button>
+                <button class="btn-color" onclick="openPhotoModal('딩고 20인치 [엘레강스 화이트]', 'dingo20_elegance_white.jpg')">엘레강스 화이트</button>
+                <button class="btn-color" onclick="openPhotoModal('딩고 20인치 [데님 블루 (무광)]', 'dingo20_denim_blue.jpg')">데님 블루(무광)</button>
+            </div>
+        </div>
+
+        <!-- 3. 트레이스 (인치별 분류) -->
+        <div id="step-trace" class="step-panel">
+            <button class="btn-back" onclick="navigateTo('step-samchuly')">이전으로</button>
+            <h2 class="step-title">트레이스 - 사이즈 선택</h2>
+            <div class="button-grid">
+                <button class="btn" onclick="navigateTo('step-trace-16')">16인치</button>
+                <button class="btn" onclick="navigateTo('step-trace-18')">18인치</button>
+            </div>
+        </div>
+
+        <div id="step-trace-16" class="step-panel">
+            <button class="btn-back" onclick="navigateTo('step-trace')">이전으로</button>
+            <h2 class="step-title">트레이스 16인치 - 색상</h2>
+            <div class="color-grid">
+                <button class="btn-color" onclick="openPhotoModal('트레이스 16인치 [라이트 핑크]', 'trace16_light_pink.jpg')">라이트 핑크</button>
+                <button class="btn-color" onclick="openPhotoModal('트레이스 16인치 [블루 민트]', 'trace16_blue_mint.jpg')">블루 민트</button>
+            </div>
+        </div>
+
+        <div id="step-trace-18" class="step-panel">
+            <button class="btn-back" onclick="navigateTo('step-trace')">이전으로</button>
+            <h2 class="step-title">트레이스 18인치 - 색상</h2>
+            <div class="color-grid">
+                <button class="btn-color" onclick="openPhotoModal('트레이스 18인치 [블루]', 'trace18_blue.jpg')">블루</button>
+                <button class="btn-color" onclick="openPhotoModal('트레이스 18인치 [화이트]', 'trace18_white.jpg')">화이트</button>
+            </div>
+        </div>
+
+
+        <!-- ================= [푸쉬카 대분류 루트] ================= -->
+        <div id="step-pushcar-root" class="step-panel">
             <button class="btn-back" onclick="navigateTo('step-main')">메인으로</button>
+            <h2 class="step-title">푸쉬카 / 붕붕카 선택</h2>
+            <div class="button-grid">
+                <button class="btn" onclick="navigateTo('step-sub-pushcar')">푸쉬카</button>
+                <button class="btn" onclick="navigateTo('step-sub-bungbung')">붕붕카</button>
+            </div>
+        </div>
+
+        <!-- 1. 푸쉬카 세부 분류 -->
+        <div id="step-sub-pushcar" class="step-panel">
+            <button class="btn-back" onclick="navigateTo('step-pushcar-root')">이전으로</button>
             <h2 class="step-title">푸쉬카 라인업</h2>
-            <p style="color: var(--text-muted); margin-top: 20px;">푸쉬카 카테고리는 추후 추가될 예정입니다.</p>
+            <div class="button-grid">
+                <button class="btn" onclick="navigateTo('step-p-g')">지바겐 푸쉬카</button>
+                <button class="btn" onclick="navigateTo('step-p-x5')">X5 푸쉬카</button>
+                <button class="btn" onclick="navigateTo('step-p-cozy')">코지 푸쉬카</button>
+            </div>
+        </div>
+
+        <div id="step-p-g" class="step-panel">
+            <button class="btn-back" onclick="navigateTo('step-sub-pushcar')">이전으로</button>
+            <h2 class="step-title">지바겐 푸쉬카 - 색상</h2>
+            <div class="color-grid">
+                <button class="btn-color" onclick="openPhotoModal('지바겐 푸쉬카 [검은색]', 'g_push_black.jpg')">검은색</button>
+                <button class="btn-color" onclick="openPhotoModal('지바겐 푸쉬카 [흰색]', 'g_push_white.jpg')">흰색</button>
+            </div>
+        </div>
+
+        <div id="step-p-x5" class="step-panel">
+            <button class="btn-back" onclick="navigateTo('step-sub-pushcar')">이전으로</button>
+            <h2 class="step-title">X5 푸쉬카 - 색상</h2>
+            <div class="color-grid">
+                <button class="btn-color" onclick="openPhotoModal('X5 푸쉬카 [블랙]', 'x5_push_black.jpg')">블랙</button>
+                <button class="btn-color" onclick="openPhotoModal('X5 푸쉬카 [화이트]', 'x5_push_white.jpg')">화이트</button>
+                <button class="btn-color" onclick="openPhotoModal('X5 푸쉬카 [레드]', 'x5_push_red.jpg')">레드</button>
+            </div>
+        </div>
+
+        <div id="step-p-cozy" class="step-panel">
+            <button class="btn-back" onclick="navigateTo('step-sub-pushcar')">이전으로</button>
+            <h2 class="step-title">코지 푸쉬카 - 색상</h2>
+            <div class="color-grid">
+                <button class="btn-color" onclick="openPhotoModal('코지 푸쉬카 [바닐라]', 'cozy_push_vanilla.jpg')">바닐라</button>
+                <button class="btn-color" onclick="openPhotoModal('코지 푸쉬카 [핑크]', 'cozy_push_pink.jpg')">핑크</button>
+            </div>
+        </div>
+
+        <!-- 2. 붕붕카 세부 분류 -->
+        <div id="step-sub-bungbung" class="step-panel">
+            <button class="btn-back" onclick="navigateTo('step-pushcar-root')">이전으로</button>
+            <h2 class="step-title">붕붕카 라인업</h2>
+            <div class="button-grid">
+                <button class="btn" onclick="navigateTo('step-b-g')">지바겐 붕붕카</button>
+                <button class="btn" onclick="openPhotoModal('클래식 붕붕카', 'classic_car.jpg')">클래식 붕붕카</button>
+                <button class="btn" onclick="navigateTo('step-b-ford')">포드 푸쉬 붕붕카</button>
+                <button class="btn" onclick="navigateTo('step-b-rover')">랜드로버 푸쉬 붕붕카</button>
+            </div>
+        </div>
+
+        <div id="step-b-g" class="step-panel">
+            <button class="btn-back" onclick="navigateTo('step-sub-bungbung')">이전으로</button>
+            <h2 class="step-title">지바겐 붕붕카 - 색상</h2>
+            <div class="color-grid">
+                <button class="btn-color" onclick="openPhotoModal('지바겐 붕붕카 [화이트]', 'g_bung_white.jpg')">화이트</button>
+                <button class="btn-color" onclick="openPhotoModal('지바겐 붕붕카 [블랙]', 'g_bung_black.jpg')">블랙</button>
+            </div>
+        </div>
+
+        <div id="step-b-ford" class="step-panel">
+            <button class="btn-back" onclick="navigateTo('step-sub-bungbung')">이전으로</button>
+            <h2 class="step-title">포드 푸쉬 붕붕카 - 색상</h2>
+            <div class="color-grid">
+                <button class="btn-color" onclick="openPhotoModal('포드 푸쉬 붕붕카 [블랙]', 'ford_black.jpg')">블랙</button>
+                <button class="btn-color" onclick="openPhotoModal('포드 푸쉬 붕붕카 [화이트]', 'ford_white.jpg')">화이트</button>
+                <button class="btn-color" onclick="openPhotoModal('포드 푸쉬 붕붕카 [레드]', 'ford_red.jpg')">레드</button>
+            </div>
+        </div>
+
+        <div id="step-b-rover" class="step-panel">
+            <button class="btn-back" onclick="navigateTo('step-sub-bungbung')">이전으로</button>
+            <h2 class="step-title">랜드로버 푸쉬 붕붕카 - 색상</h2>
+            <div class="color-grid">
+                <button class="btn-color" onclick="openPhotoModal('랜드로버 푸쉬 붕붕카 [화이트]', 'rover_white.jpg')">화이트</button>
+                <button class="btn-color" onclick="openPhotoModal('랜드로버 푸쉬 붕붕카 [레드]', 'rover_red.jpg')">레드</button>
+                <button class="btn-color" onclick="openPhotoModal('랜드로버 푸쉬 붕붕카 [블랙]', 'rover_black.jpg')">블랙</button>
+            </div>
         </div>
 
     </div>
@@ -518,7 +660,6 @@
                         <span id="modalFileNameDisplay" style="font-size: 0.9rem; color: #adb5bd; display:block; margin-top:10px;">(파일명)</span>
                     </div>
                 </div>
-                <!-- 실제 매장에서 이미지 로드 시 쓰이는 태그 -->
                 <img id="modalActualImage" src="" alt="제품 와이드 사진" class="modal-product-image">
             </div>
 
@@ -530,10 +671,9 @@
                     태블릿 가로 전체화면 모드입니다.<br>
                     고객 안내 시 화면을 돌려 선명하게 차량 색상 및 디자인을 보여줄 수 있습니다.<br><br>
                     <span style="color:#212529; font-weight:600;">💡 직원 안내 팁:</span><br>
-                    실제 차량 연동 시 왼쪽 영역에 고화질 가로형 이미지가 꽉 차게 연출됩니다.
+                    실제 사진 파일 연동 시 왼쪽 영역에 고화질 가로형 이미지가 채워집니다.
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -560,18 +700,18 @@
             modalName.innerText = productName;
             
             /* 실제 사진 연동하는 방법:
-               아래 3줄 주석(//)을 제거하고, 이미지 폴더 경로를 일치시켜 주세요. */
+               아래 3줄 앞의 주석(//)을 제거하시고 이미지 파일 경로를 일치시켜 주시면 완성됩니다. */
             // modalActualImg.src = 'images/' + imgFileName; 
             // modalActualImg.style.display = 'block';     
             // modalPlaceholder.style.display = 'none';    
 
-            // 사진 연동 전 기본 임시 모드 상태
+            // 사진 연동 전 기본 가이드 모드
             modalFileNameText.innerText = '연동 파일명: ' + imgFileName;
             modalActualImg.style.display = 'none';
             modalPlaceholder.style.display = 'flex';
 
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // 뒷배경 터치 방지
+            document.body.style.overflow = 'hidden';
         }
 
         function closePhotoModal(event) {
